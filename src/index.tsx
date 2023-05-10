@@ -1,15 +1,44 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import MainPage from "./Pages/Main";
+import {Nav} from "./Pages/Nav";
+import {FractalsPage} from "./Pages/Fractals";
+import {ColorModels} from "./Pages/ColorModels";
+import {ColorModelsInfo} from "./Pages/ColorModelsInfo";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <MainPage/>,
+  },
+  {
+    path: "/nav",
+    element: <Nav/>,
+  },
+  {
+    path: "/nav/fractals",
+    element: <FractalsPage/>,
+  },
+  {
+    path: "/nav/color-models",
+    element: <ColorModels/>,
+  },
+  {
+    path: "/nav/color-models/info",
+    element: <ColorModelsInfo/>,
+  },
+]);
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
